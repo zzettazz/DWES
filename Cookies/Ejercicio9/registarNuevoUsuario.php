@@ -6,12 +6,12 @@ if (isset($_GET["usuarioRegistro"]) && isset($_GET["contraseniaRegistro"]))
     if (!isset($_SESSION["bd"]) )
     {
         $_SESSION["bd"] = array();
-        array_push($_SESSION["bd"],[$_GET["usuarioRegistro"],$_GET["contraseniaRegistro"]]);
+        array_push($_SESSION["bd"],["usuario"=>$_GET["usuarioRegistro"],"contrasenia"=>$_GET["contraseniaRegistro"]]);
         header("Location:login.php");
     }
     else
     {
-        array_push($_SESSION["bd"],[$_GET["usuarioRegistro"],$_GET["contraseniaRegistro"]]);
+        array_push($_SESSION["bd"],["usuario"=>$_GET["usuarioRegistro"],"contrasenia"=>$_GET["contraseniaRegistro"]]);
         sleep(3);
         header("Location:login.php");
     }
