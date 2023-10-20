@@ -1,15 +1,16 @@
 <?php
 
 $nuevaAportacion["nombre"] = isset($_GET["nombre"]) ? $_GET["nombre"] : null;
-$nuevaAportacion["aportaciones"] = isset($_GET["aportaciones"]) ? $_GET["aportaciones"] : 0;
+$nuevaAportacion["cantidad"] = isset($_GET["cantidad"]) ? $_GET["cantidad"] : 0;
 
-if ($nombre == null && $aportacion != 0)
+if ($nuevaAportacion["nombre"] && $nuevaAportacion["cantidad"] != 0)
 {
     session_start();
     if (!isset($_SESSION["aportaciones"]))
     {
         $_SESSION["aportaciones"] = [];
     }
+    $_SESSION["aportaciones"][] = $nuevaAportacion;
 }
 header("Location:regalo.php")
 ?>
