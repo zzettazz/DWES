@@ -12,6 +12,7 @@ if (isset($_POST["nombreUsuarioIntroducido"]) && isset($_POST["contraseniaIntrod
         {
             if ($_POST["recordar"] == "on") $_SESSION["ultimoUsuario"] = $usuario;
             header("Location: listaUsuarios.php");
+            $_SESSION["usuarioActual"] = $usuario;
             exit;
         }
     }
