@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_GET["nombreUsuarioIntroducido"]) && !isset($_GET["contraseniaIntroducida"]))
+if (isset($_GET["nombreUsuarioIntroducido"]) && isset($_GET["contraseniaIntroducida"]))
 {
     $usuario = $_GET["nombreUsuarioIntroducido"];
     $contrasenia = $_GET["contraseniaIntroducida"];
