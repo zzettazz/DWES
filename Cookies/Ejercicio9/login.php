@@ -1,4 +1,14 @@
-
+<?php
+session_start();
+$usuarioGuadado = "";
+if (!isset($_SESSION["usuarios"]))
+{
+    $_SESSION["usuarios"] = array(
+        "arrayUsuarios" => array(),
+        "arrayContrasenias" => array()
+    );
+}
+?>
 
 <h1>LOGIN</h1>
 <form action="listaUsuarios.php" method="GET">
