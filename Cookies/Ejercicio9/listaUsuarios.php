@@ -18,7 +18,7 @@ $usuarioActual = $_SESSION["usuarioActual"];
             <tr>
                 <th><?= $usuario["usuario"] ?></th>
                 <th><a href="#">Leer</a></th>
-                <th><a href="#">Escribir</a></th>
+                <th><a href="escribir.php?destinatario=<?= $usuario["usuario"] ?>">Escribir</a></th>
             </tr>
         <?php endif; ?>
     <?php endforeach; ?>
