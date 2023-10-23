@@ -1,4 +1,7 @@
 <?php
+//////////////////////////////////
+$debug = false;
+/////////////////////////////////
 session_start();
 $ultimoUsuario;
 
@@ -63,12 +66,14 @@ else $ultimoUsuario = "";
 <body>
     <div class="container">
         <h1>LOGIN</h1>
-        <h2>Usuarios</h2>
-        <ul>
-            <?php foreach ($_SESSION["bd"] as $usuario): ?>
-                <li><?= "Usuario: " . $usuario["usuario"] . " || Contraseña: " . $usuario["contrasenia"] ?></li>
-            <?php endforeach; ?>
-        </ul>
+        <?php if ($debug == true): ?>
+            <h2>Usuarios</h2>
+            <ul>
+                <?php foreach ($_SESSION["bd"] as $usuario): ?>
+                    <li><?= "Usuario: " . $usuario["usuario"] . " || Contraseña: " . $usuario["contrasenia"] ?></li>
+                <?php endforeach; ?>
+            </ul>
+        <?php endif; ?>
         <form action="hacerLogin.php" method="POST">
             Usuario <input type="text" id="nombreUsuarioIntroducido" name="nombreUsuarioIntroducido" value=<?= $ultimoUsuario ?>><br/>
             Contraseña <input type="password" id="contraseniaIntroducida" name="contraseniaIntroducida"/><br/>
