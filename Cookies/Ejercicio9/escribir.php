@@ -2,9 +2,8 @@
 session_start();
 $usuarioActual = $_SESSION["usuarioActual"];
 
-// Obtén el destinatario del parámetro de la URL
-if (isset($_GET['destinatario'])) {
-    $destinatario = $_GET['destinatario'];
+if (isset($_POST['destinatario'])) {
+    $destinatario = $_POST['destinatario'];
 }
 ?>
 
