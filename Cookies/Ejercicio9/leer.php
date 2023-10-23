@@ -17,6 +17,11 @@ if (isset($_POST['escritor'])) {
 }
 $hayMensajes = false;
 
+if (!isset($_SESSION["mensajes"]))
+{
+    $_SESSION["mensajes"] = array();
+}
+
 // REVISAR
 if (isset($_SESSION["mensajes"])) $hayMensajes = true;
 ?>
@@ -50,7 +55,7 @@ if (isset($_SESSION["mensajes"])) $hayMensajes = true;
                 <th>MENSAJE</th>
             </tr>
             <?php foreach($_SESSION["mensajes"] as $mensaje) : ?>
-                <?php if ($mensaje["emisor"] == $usuarioDestino) : ?>
+                <?php if ($mensaje["receptor"] == $usuarioActual && $mensaje["emisor"] == $usuarioDestino) : ?>
                     <tr>
                         <th><?= $mensaje["fechaHora"] ?></th>
                         <th><?= $mensaje["mensaje"] ?></th>
