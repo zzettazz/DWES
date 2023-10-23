@@ -6,19 +6,25 @@ if (isset($_POST["nombreUsuarioIntroducido"]) && isset($_POST["contraseniaIntrod
     $usuario = $_POST["nombreUsuarioIntroducido"];
     $contrasenia = $_POST["contraseniaIntroducida"];
     
+    $loginExitoso = false;
+    
     foreach ($_SESSION["bd"] as $user)
     {
         if ($user["usuario"] === $usuario && $user["contrasenia"] === $contrasenia)
         {
             if ($_POST["recordar"] == "on") $_SESSION["ultimoUsuario"] = $usuario;
-            header("Location: listaUsuarios.php");
             $_SESSION["usuarioActual"] = $usuario;
-            exit;
+            $_SESSION["estadoLogin"] = "correcto";
+            $loginExitoso = true;
+            break;
         }
     }
+    
+    if (!$loginExitoso) {
+        $_SESSION["estadoLogin"] = "fallido";
+    }
+    
+    header("Location: pantallaInfoLogin.php");
+    exit;
 }
-
-// Si el usuario y la contraseña no coinciden, redirige de nuevo al formulario de inicio de sesión
-header("Location: index.php?error=1");
-
 ?>

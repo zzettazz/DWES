@@ -5,3 +5,6 @@
     Contraseña <input type="password" id="contraseniaRegistro" name="contraseniaRegistro"><br/>
     <input type="submit"/>
 </form>
+<br/>
+<br/>
+<a href="login.php">Volver a login</a>
