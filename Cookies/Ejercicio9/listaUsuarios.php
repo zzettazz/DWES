@@ -13,9 +13,13 @@ $usuarioActual = $_SESSION["usuarioActual"];
         <th>MENSAJES</th>
         <th>ACCIONES</th>
     </tr>
-    <tr>
     <?php foreach ($_SESSION["bd"] as $usuario): ?>
-        <th><?= $usuario["usuario"] ?></th>
+        <?php if ($usuario["usuario"] != $usuarioActual) : ?>
+            <tr>
+                <th><?= $usuario["usuario"] ?></th>
+                <th><a href="#">Leer</a></th>
+                <th><a href="#">Escribir</a></th>
+            </tr>
+        <?php endif; ?>
     <?php endforeach; ?>
-    </tr>
 </table>
