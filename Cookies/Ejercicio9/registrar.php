@@ -23,8 +23,8 @@ if (isset($_POST['destinatario'])) {
         }
 
         form {
-        margin: 0 auto; /* Centrar horizontalmente */
-        text-align: center;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .container {
@@ -38,8 +38,8 @@ if (isset($_POST['destinatario'])) {
         }
 
         .botonEnviar{
-            background-color: blue; /* Fondo transparente */
-            border: 2px solid black; /* Sin borde */
+            background-color: blue;
+            border: 2px solid black;
             border-radius: 25px;
             padding-left:20px;
             padding-right:20px;
@@ -51,7 +51,7 @@ if (isset($_POST['destinatario'])) {
         }
 
         .botonEnviar:hover{
-            background-color: black; /* Fondo transparente */
+            background-color: black;
             color:white;
         }
     </style>

@@ -33,7 +33,7 @@ if (isset($_SESSION["mensajes"])) $hayMensajes = true;
         }
 
         table {
-        margin: 0 auto; /* Centrar horizontalmente */
+            margin: 0 auto; /* Centrar horizontalmente */
         }
 
         table th {

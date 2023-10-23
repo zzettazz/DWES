@@ -27,7 +27,7 @@ $usuarioActual = $_SESSION["usuarioActual"];
         cursor: pointer; /* Cambia el cursor al pasar el mouse */
         padding: 7px; /* Elimina el relleno interno del botón */
         margin: 0 auto; /* Centrar horizontalmente */
-        margin-top: 17px;
+        margin-top: 0;
         display: block; /* Hacer el botón un bloque para centrarlo */
         }
 
@@ -39,7 +39,7 @@ $usuarioActual = $_SESSION["usuarioActual"];
             cursor: pointer; /* Cambia el cursor al pasar el mouse */
             padding: 7px; /* Elimina el relleno interno del botón */
             margin: 0 auto; /* Centrar horizontalmente */
-            margin-top: 17px;
+            margin-top: 0;
             display: block; /* Hacer el botón un bloque para centrarlo */
         }
 
@@ -57,6 +57,10 @@ $usuarioActual = $_SESSION["usuarioActual"];
 
         h1 {
             border-bottom: 2px dashed black;
+        }
+
+        th {
+            padding: 10px;
         }
 
     </style>

@@ -1,6 +1,6 @@
 <?php
 //////////////////////////////////
-$debug = false;
+$debug = true;
 /////////////////////////////////
 session_start();
 $ultimoUsuario;
@@ -21,6 +21,7 @@ else $ultimoUsuario = "";
             display: flex;
             justify-content: center;
             align-items: center;
+            min-height: 100vh; /* Asegura que el contenedor esté centrado verticalmente */
             margin: 0;
         }
 
@@ -33,32 +34,29 @@ else $ultimoUsuario = "";
         }
 
         li {
-            padding-top:5px;
+            padding-top: 5px;
         }
 
         .container {
             text-align: center;
-            border:2px dotted black;
-            border-radius:20px;
-            padding: 100px;
+            border: 2px dotted black;
+            border-radius: 20px;
+            padding: 100px; /* Reducido el padding para ajustar a una apariencia más estilizada */
         }
 
         .botonEnviar {
-            background-color: blue; /* Fondo transparente */
-            border: 2px solid black; /* Sin borde */
+            background-color: blue;
+            border: 2px solid black;
             border-radius: 25px;
             margin-top: 20px;
-            padding-left:20px;
-            padding-right:20px;
-            padding-top:10px;
-            padding-bottom:10px;
-            font-size:15px;
-            color:white;
+            padding: 10px 20px; /* Simplificado el padding para mantener el aspecto */
+            font-size: 15px;
+            color: white;
             cursor: pointer;
         }
 
         .botonEnviar:hover {
-            background-color: black; /* Fondo transparente */
+            background-color: black;
         }
 
     </style>
@@ -76,7 +74,7 @@ else $ultimoUsuario = "";
         <?php endif; ?>
         <form action="hacerLogin.php" method="POST">
             Usuario <input type="text" id="nombreUsuarioIntroducido" name="nombreUsuarioIntroducido" value=<?= $ultimoUsuario ?>><br/>
-            Contraseña <input type="password" id="contraseniaIntroducida" name="contraseniaIntroducida"/><br/>
+            Contraseña <input type="password" id="contraseniaIntroducida" name="contraseniaIntroducida"/><br/><br/>
             <label for="recordar">Recordar</label> <input type="checkbox" name="recordar" id="recordar"/><br/>
             <input type="submit" class="botonEnviar"/><br/><br/>
             <a href="registrar.php">Registrar nuevo usuario</a>
