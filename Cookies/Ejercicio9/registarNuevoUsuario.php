@@ -118,7 +118,7 @@ else
     echo "<span class=\"loader\"></span>";
     echo "</div>";
     echo "</div>";
-    header("refresh:3;url=login.php"); // Redirigir después de 3 segundos
+    header("refresh:3;url=registrar.php"); // Redirigir después de 3 segundos
 }
 
 ?>

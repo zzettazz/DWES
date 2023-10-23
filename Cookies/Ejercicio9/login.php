@@ -72,7 +72,7 @@ else $ultimoUsuario = "";
         <form action="hacerLogin.php" method="POST">
             Usuario <input type="text" id="nombreUsuarioIntroducido" name="nombreUsuarioIntroducido" value=<?= $ultimoUsuario ?>><br/>
             Contraseña <input type="password" id="contraseniaIntroducida" name="contraseniaIntroducida"/><br/>
-            Recordar <input type="checkbox" name="recordar"/><br/>
+            <label for="recordar">Recordar</label> <input type="checkbox" name="recordar" id="recordar"/><br/>
             <input type="submit" class="botonEnviar"/><br/><br/>
             <a href="registrar.php">Registrar nuevo usuario</a>
             <br/><br/><br/>

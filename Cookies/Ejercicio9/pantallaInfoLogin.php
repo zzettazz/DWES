@@ -91,7 +91,7 @@ $estadoLogin = $_SESSION["estadoLogin"];
 if ($estadoLogin == "correcto") {
     echo "<div class='container'>";
     echo "<h1>LOGIN CORRECTO</h1>";
-    echo "<br/><h2>Bienvenido: ".$_SESSION["usuarioActual"]."</h2>";
+    echo "<br/><h2>Bienvenid@: ".$_SESSION["usuarioActual"]."</h2>";
     echo "<br/>Se le redirigirá automáticamente en 3 segundos";
     echo "<div class='loader-container'>";
     echo "<span class=\"loader\"></span>";

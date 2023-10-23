@@ -27,6 +27,17 @@
         background-color: white; /* Fondo transparente */
         color: black;
     }
+
+    .container {
+        border: 2px dotted black;
+        padding: 100px;
+        border-radius: 25px;
+    }
+
+    h1 {
+        border-bottom: 2px dashed black;
+    }
+
 </style>
 
 <?php
