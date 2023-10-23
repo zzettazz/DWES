@@ -1,13 +1,3 @@
-<style>
-    table {
-        margin: 0 auto; /* Centrar horizontalmente */
-    }
-
-    table th {
-        padding: 10px;
-    }
-</style>
-
 <?php
 session_start();
 $usuarioActual = $_SESSION["usuarioActual"];
@@ -40,6 +30,14 @@ if (isset($_SESSION["mensajes"])) $hayMensajes = true;
 
         .container {
             text-align: center;
+        }
+
+        table {
+        margin: 0 auto; /* Centrar horizontalmente */
+        }
+
+        table th {
+            padding: 10px;
         }
     </style>
 </head>

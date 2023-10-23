@@ -1,10 +1,3 @@
-<style>
-    form {
-        margin: 0 auto; /* Centrar horizontalmente */
-        text-align: center;
-    }
-</style>
-
 <?php
 session_start();
 $usuarioActual = $_SESSION["usuarioActual"];
@@ -28,6 +21,11 @@ if (isset($_POST['destinatario'])) {
 
         .container {
             text-align: center;
+        }
+
+        form {
+        margin: 0 auto; /* Centrar horizontalmente */
+        text-align: center;
         }
     </style>
 </head>

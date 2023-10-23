@@ -1,45 +1,3 @@
-<style>
-    .boton-escribir {
-        background-color: blue; /* Fondo transparente */
-        border: 2px solid black; /* Sin borde */
-        border-radius: 25px;
-        color: white; /* Color de texto (ajusta según tu diseño) */
-        cursor: pointer; /* Cambia el cursor al pasar el mouse */
-        padding: 7px; /* Elimina el relleno interno del botón */
-        margin: 0 auto; /* Centrar horizontalmente */
-        margin-top: 17px;
-        display: block; /* Hacer el botón un bloque para centrarlo */
-    }
-
-    .boton-leer {
-        background-color: green; /* Fondo transparente */
-        border: 2px solid black; /* Sin borde */
-        border-radius: 25px;
-        color: white; /* Color de texto (ajusta según tu diseño) */
-        cursor: pointer; /* Cambia el cursor al pasar el mouse */
-        padding: 7px; /* Elimina el relleno interno del botón */
-        margin: 0 auto; /* Centrar horizontalmente */
-        margin-top: 17px;
-        display: block; /* Hacer el botón un bloque para centrarlo */
-    }
-
-    .boton-escribir:hover, .boton-leer:hover {
-        background-color: white; /* Fondo transparente */
-        color: black;
-    }
-
-    .container {
-        border: 2px dotted black;
-        padding: 100px;
-        border-radius: 25px;
-    }
-
-    h1 {
-        border-bottom: 2px dashed black;
-    }
-
-</style>
-
 <?php
 session_start();
 $usuarioActual = $_SESSION["usuarioActual"];
@@ -57,13 +15,50 @@ $usuarioActual = $_SESSION["usuarioActual"];
             margin: 0;
         }
 
-        .container {
-            text-align: center;
-        }
-
         .acciones th {
             padding: 10px;
         }
+
+        .boton-escribir {
+        background-color: blue; /* Fondo transparente */
+        border: 2px solid black; /* Sin borde */
+        border-radius: 25px;
+        color: white; /* Color de texto (ajusta según tu diseño) */
+        cursor: pointer; /* Cambia el cursor al pasar el mouse */
+        padding: 7px; /* Elimina el relleno interno del botón */
+        margin: 0 auto; /* Centrar horizontalmente */
+        margin-top: 17px;
+        display: block; /* Hacer el botón un bloque para centrarlo */
+        }
+
+        .boton-leer {
+            background-color: green; /* Fondo transparente */
+            border: 2px solid black; /* Sin borde */
+            border-radius: 25px;
+            color: white; /* Color de texto (ajusta según tu diseño) */
+            cursor: pointer; /* Cambia el cursor al pasar el mouse */
+            padding: 7px; /* Elimina el relleno interno del botón */
+            margin: 0 auto; /* Centrar horizontalmente */
+            margin-top: 17px;
+            display: block; /* Hacer el botón un bloque para centrarlo */
+        }
+
+        .boton-escribir:hover, .boton-leer:hover {
+            background-color: white; /* Fondo transparente */
+            color: black;
+        }
+
+        .container {
+            border: 2px dotted black;
+            padding: 100px;
+            border-radius: 25px;
+            text-align: center;
+        }
+
+        h1 {
+            border-bottom: 2px dashed black;
+        }
+
     </style>
 </head>
 <body>
