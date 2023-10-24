@@ -1,5 +1,17 @@
 <?php
 session_start();
+
+if (!isset($_SESSION["bd"])) {
+    header("Location:login.php");
+}
+
+$contadorUsuarios = 0;
+foreach ($_SESSION["bd"] as $usuario)
+{
+    $contadorUsuarios = $contadorUsuarios + 1;
+}
+if ($contadorUsuarios == 0) header("Location:login.php");
+
 $usuarioActual = $_SESSION["usuarioActual"];
 
 if (isset($_POST['escritor'])) {
