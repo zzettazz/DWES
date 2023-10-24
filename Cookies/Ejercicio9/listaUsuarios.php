@@ -1,6 +1,20 @@
 <?php
 session_start();
 $usuarioActual = $_SESSION["usuarioActual"];
+
+$recuentoUsuarios = 0;
+
+if (isset($_SESSION["bd"]))
+{
+    foreach ($_SESSION["bd"] as $elemento)
+    {
+        if (isset($elemento["usuario"]))
+        {
+            $recuentoUsuarios++;
+        }
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -63,6 +77,13 @@ $usuarioActual = $_SESSION["usuarioActual"];
             padding: 10px;
         }
 
+        .sinUsuarios {
+            border: 4px solid black;
+            padding: 10px;
+            border-color: red;
+            border-radius: 20px;
+        }
+
     </style>
 </head>
 <body>
@@ -71,32 +92,36 @@ $usuarioActual = $_SESSION["usuarioActual"];
         <br/>
         <h2>Lista de usuarios / mensajes</h2>
         <br/><br/>
-        <table border="1">
-            <tr class="acciones">
-                <th>USUARIOS</th>
-                <th>MENSAJES</th>
-                <th>ACCIONES</th>
-            </tr>
-            <?php foreach ($_SESSION["bd"] as $usuario): ?>
-                <?php if ($usuario["usuario"] != $usuarioActual) : ?>
-                    <tr>
-                        <th><?= $usuario["usuario"] ?></th>
-                        <th>
-                            <form action="leer.php" method="POST">
-                                <input type="hidden" name="escritor" value="<?= $usuario['usuario'] ?>">
-                                <input type="submit" class="boton-leer" value="Leer">
-                            </form>
-                        </th>
-                        <th>
-                            <form action="escribir.php" method="POST">
-                                <input type="hidden" name="destinatario" value="<?= $usuario['usuario'] ?>">
-                                <input type="submit" class="boton-escribir" value="Escribir">
-                            </form>
-                        </th>
-                    </tr>
-                <?php endif; ?>
-            <?php endforeach; ?>
-        </table>
+        <?php if ($recuentoUsuarios > 1) : ?>
+            <table border="1">
+                <tr class="acciones">
+                    <th>USUARIOS</th>
+                    <th>MENSAJES</th>
+                    <th>ACCIONES</th>
+                </tr>
+                <?php foreach ($_SESSION["bd"] as $usuario): ?>
+                    <?php if ($usuario["usuario"] != $usuarioActual) : ?>
+                        <tr>
+                            <th><?= $usuario["usuario"] ?></th>
+                            <th>
+                                <form action="leer.php" method="POST">
+                                    <input type="hidden" name="escritor" value="<?= $usuario['usuario'] ?>">
+                                    <input type="submit" class="boton-leer" value="Leer">
+                                </form>
+                            </th>
+                            <th>
+                                <form action="escribir.php" method="POST">
+                                    <input type="hidden" name="destinatario" value="<?= $usuario['usuario'] ?>">
+                                    <input type="submit" class="boton-escribir" value="Escribir">
+                                </form>
+                            </th>
+                        </tr>
+                    <?php endif; ?>
+                <?php endforeach; ?>
+            </table>
+        <?php else: ?>
+            <h2 class="sinUsuarios">No hay usuarios disponibles</h2>
+        <?php endif; ?>
         <br/>
         <br/>
         <a href="login.php">Volver a login</a>

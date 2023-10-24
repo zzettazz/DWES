@@ -1,5 +1,6 @@
 <!-- El cursor ha sido elegido de: https://cssloaders.github.io/ -->
 <style>
+
     .container {
         text-align: center;
         margin-top: 250px;
@@ -87,19 +88,48 @@
 <?php
 session_start();
 
-if (isset($_GET["usuarioRegistro"]) && isset($_GET["contraseniaRegistro"]) && $_GET["usuarioRegistro"] != "" && $_GET["contraseniaRegistro"] != "")
+if (isset($_GET["usuarioRegistro"]) && isset($_GET["contraseniaRegistro"]) && $_GET["usuarioRegistro"] != "" && $_GET["contraseniaRegistro"] != "" )
 {
+
+    $usuarioYaExistente = false;
 
     if (!isset($_SESSION["bd"]) )
     {
         $_SESSION["bd"] = array();
         array_push($_SESSION["bd"],["usuario"=>$_GET["usuarioRegistro"],"contrasenia"=>$_GET["contraseniaRegistro"]]);
+
+        registroExistoso();
     }
     else
     {
-        array_push($_SESSION["bd"],["usuario"=>$_GET["usuarioRegistro"],"contrasenia"=>$_GET["contraseniaRegistro"]]);
-    }
+        foreach ($_SESSION["bd"] as $array)
+        {
+            if ($array["usuario"] == $_GET["usuarioRegistro"])
+            {
+                $usuarioYaExistente = true;
+                break;
+            }
+        }
 
+        if (!$usuarioYaExistente)
+        {
+            array_push($_SESSION["bd"],["usuario"=>$_GET["usuarioRegistro"],"contrasenia"=>$_GET["contraseniaRegistro"]]);
+
+            registroExistoso();
+        }
+        else
+        {
+            mostrarError("USUARIO YA EXISTENTE");
+        }
+    }
+}
+else
+{
+    mostrarError("REGISTRO FALLIDO");
+}
+
+function registroExistoso()
+{
     echo "<div class='container'>";
     echo "<h1>REGISTRANDO USUARIO</h1>";
     echo "<br/>Se le redirigirá automáticamente en 3 segundos";
@@ -109,10 +139,11 @@ if (isset($_GET["usuarioRegistro"]) && isset($_GET["contraseniaRegistro"]) && $_
     echo "</div>";
     header("refresh:3;url=login.php");
 }
-else
+
+function mostrarError($mensaje)
 {
     echo "<div class='container'>";
-    echo "<h1>REGISTRO FALLIDO</h1>";
+    echo "<h1>$mensaje</h1>";
     echo "<br/>Se le redirigirá automáticamente en 3 segundos";
     echo "<div class='loader-container'>";
     echo "<span class=\"loader\"></span>";
