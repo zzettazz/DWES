@@ -10,10 +10,19 @@ $hayMensajes = false;
 if (!isset($_SESSION["mensajes"]))
 {
     $_SESSION["mensajes"] = array();
+    $hayMensajes = false;
 }
-
-// REVISAR
-if (isset($_SESSION["mensajes"])) $hayMensajes = true;
+else
+{
+    foreach ($_SESSION["mensajes"] as $mensaje)
+    {
+        if ($mensaje["emisor"] == $usuarioDestino && $mensaje["receptor"] == $usuarioActual)
+        {
+            $hayMensajes = true;
+            break;
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,20 +56,24 @@ if (isset($_SESSION["mensajes"])) $hayMensajes = true;
         <br/>
         <h2>Lista de mensajes de <?= isset($usuarioDestino) ? $usuarioDestino : '' ?></h2>
         <br/>
-        <table border="1">
-            <tr>
-                <th>FECHA</th>
-                <th>MENSAJE</th>
-            </tr>
-            <?php foreach($_SESSION["mensajes"] as $mensaje) : ?>
-                <?php if ($mensaje["receptor"] == $usuarioActual && $mensaje["emisor"] == $usuarioDestino) : ?>
-                    <tr>
-                        <th><?= $mensaje["fechaHora"] ?></th>
-                        <th><?= $mensaje["mensaje"] ?></th>
-                    </tr>
-                <?php endif ?>
-            <?php endforeach ?>
-        </table>
+        <?php if ($hayMensajes == true) : ?>
+            <table border="1">
+                <tr>
+                    <th>FECHA</th>
+                    <th>MENSAJE</th>
+                </tr>
+                <?php foreach($_SESSION["mensajes"] as $mensaje) : ?>
+                    <?php if ($mensaje["receptor"] == $usuarioActual && $mensaje["emisor"] == $usuarioDestino) : ?>
+                        <tr>
+                            <th><?= $mensaje["fechaHora"] ?></th>
+                            <th><?= $mensaje["mensaje"] ?></th>
+                        </tr>
+                    <?php endif ?>
+                <?php endforeach ?>
+            </table>
+        <?php else : ?>
+            <h4>SIN MENSAJES</h4>
+        <?php endif; ?>
         <br/>
         <br/>
         <a href="listaUsuarios.php">Volver a la lista de usuarios</a>
