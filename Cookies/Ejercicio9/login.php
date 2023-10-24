@@ -1,6 +1,6 @@
 <?php
 //////////////////////////////////
-$debug = true;
+$debug = false;
 /////////////////////////////////
 session_start();
 $ultimoUsuario;
@@ -73,7 +73,7 @@ else $ultimoUsuario = "";
             </ul>
         <?php endif; ?>
         <form action="hacerLogin.php" method="POST">
-            Usuario <input type="text" id="nombreUsuarioIntroducido" name="nombreUsuarioIntroducido" value=<?= $ultimoUsuario ?>><br/>
+            Usuario <input type="text" id="nombreUsuarioIntroducido" name="nombreUsuarioIntroducido" value=<?= $ultimoUsuario ?>><br/><br/>
             Contraseña <input type="password" id="contraseniaIntroducida" name="contraseniaIntroducida"/><br/><br/>
             <label for="recordar">Recordar</label> <input type="checkbox" name="recordar" id="recordar"/><br/>
             <input type="submit" class="botonEnviar"/><br/><br/>
