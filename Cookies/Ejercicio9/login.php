@@ -1,6 +1,7 @@
 <?php
 //////////////////////////////////
-$debug = false;
+// ACTIVAR SI QUEREMOS VER LOS USUARIOS CREADOS
+$debug = true;
 /////////////////////////////////
 session_start();
 $ultimoUsuario;
@@ -22,6 +23,7 @@ else $ultimoUsuario = "";
             border:2px solid black;
             border-radius:25px;
             text-align: center;
+            font-family: cursive;
         }
 
         body {
@@ -48,7 +50,7 @@ else $ultimoUsuario = "";
             text-align: center;
             border: 2px dotted black;
             border-radius: 20px;
-            padding: 100px;
+            padding: 60px;
         }
 
         .botonEnviar {
@@ -56,13 +58,30 @@ else $ultimoUsuario = "";
             border: 2px solid black;
             border-radius: 25px;
             margin-top: 20px;
-            padding: 10px 70px;
+            padding: 10px 75px;
             font-size: 15px;
             color: white;
             cursor: pointer;
+            font-family: cursive;
         }
 
         .botonEnviar:hover {
+            background-color: black;
+        }
+
+        .botonRegistrar {
+            background-color: green;
+            border: 2px solid black;
+            border-radius: 25px;
+            margin-top: 20px;
+            padding: 5px 40px;
+            font-size: 15px;
+            color: white;
+            cursor: pointer;
+            font-family: cursive;
+        }
+
+        .botonRegistrar:hover {
             background-color: black;
         }
 
@@ -83,11 +102,12 @@ else $ultimoUsuario = "";
             <input type="text" placeholder="Usuario" class="textoEntrada" id="nombreUsuarioIntroducido" name="nombreUsuarioIntroducido" value=<?= $ultimoUsuario ?>><br/><br/>
             <input type="password" placeholder="Contraseña" class="textoEntrada" id="contraseniaIntroducida" name="contraseniaIntroducida"/><br/><br/>
             <label for="recordar">Recordar</label> <input type="checkbox" name="recordar" id="recordar"/><br/>
-            <input type="submit" class="botonEnviar"/><br/><br/>
-            <a href="registrar.php">Registrar nuevo usuario</a>
-            <br/><br/><br/>
-            </h6>*<br/>AVISO:<br/>TODOS CONTIENEN CSS<br/>POR PURA ESTETICA,<br/>NO ES NECESARIO<br/>*</h6>
+            <input type="submit" class="botonEnviar" value="ENTRAR"/>
         </form>
+        <form action="registrar.php" method="POST">
+            <input type="submit" class="botonRegistrar" value="REGISTRARSE"/><br/><br/>
+        </form>
+        </h6>*<br/>AVISO:<br/>TODOS CONTIENEN CSS<br/>POR PURA ESTETICA,<br/>NO ES NECESARIO<br/>*</h6>
     </div>
 </body>
 </html>

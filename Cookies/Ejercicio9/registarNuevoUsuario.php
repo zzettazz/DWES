@@ -88,7 +88,7 @@
 <?php
 session_start();
 
-if (isset($_GET["usuarioRegistro"]) && isset($_GET["contraseniaRegistro"]) && $_GET["usuarioRegistro"] != "" && $_GET["contraseniaRegistro"] != "" )
+if (isset($_POST["usuarioRegistro"]) && isset($_POST["contraseniaRegistro"]) && $_POST["usuarioRegistro"] != "" && $_POST["contraseniaRegistro"] != "" )
 {
 
     $usuarioYaExistente = false;
@@ -96,7 +96,7 @@ if (isset($_GET["usuarioRegistro"]) && isset($_GET["contraseniaRegistro"]) && $_
     if (!isset($_SESSION["bd"]) )
     {
         $_SESSION["bd"] = array();
-        array_push($_SESSION["bd"],["usuario"=>$_GET["usuarioRegistro"],"contrasenia"=>$_GET["contraseniaRegistro"]]);
+        array_push($_SESSION["bd"],["usuario"=>$_POST["usuarioRegistro"],"contrasenia"=>$_POST["contraseniaRegistro"]]);
 
         registroExistoso();
     }
@@ -104,7 +104,7 @@ if (isset($_GET["usuarioRegistro"]) && isset($_GET["contraseniaRegistro"]) && $_
     {
         foreach ($_SESSION["bd"] as $array)
         {
-            if ($array["usuario"] == $_GET["usuarioRegistro"])
+            if ($array["usuario"] == $_POST["usuarioRegistro"])
             {
                 $usuarioYaExistente = true;
                 break;
@@ -113,7 +113,7 @@ if (isset($_GET["usuarioRegistro"]) && isset($_GET["contraseniaRegistro"]) && $_
 
         if (!$usuarioYaExistente)
         {
-            array_push($_SESSION["bd"],["usuario"=>$_GET["usuarioRegistro"],"contrasenia"=>$_GET["contraseniaRegistro"]]);
+            array_push($_SESSION["bd"],["usuario"=>$_POST["usuarioRegistro"],"contrasenia"=>$_POST["contraseniaRegistro"]]);
 
             registroExistoso();
         }

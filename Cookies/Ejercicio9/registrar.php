@@ -16,6 +16,7 @@ if (isset($_POST['destinatario'])) {
             border: 3px solid black;
             border-radius: 25px;
             text-align: center;
+            font-family: cursive;
         }
 
         body {
@@ -46,16 +47,14 @@ if (isset($_POST['destinatario'])) {
         }
 
         .botonEnviar{
-            background-color: blue;
+            background-color: green;
             border: 2px solid black;
             border-radius: 25px;
-            padding-left:50px;
-            padding-right:50px;
-            padding-top:10px;
-            padding-bottom:10px;
+            padding: 10px 55px;
             font-size:15px;
             color:white;
             cursor: pointer;
+            font-family: cursive;
         }
 
         .botonEnviar:hover{
@@ -68,10 +67,10 @@ if (isset($_POST['destinatario'])) {
     <div class="container">
         <h1>NUEVO USUARIO</h1>
         <br/>
-        <form action="registarNuevoUsuario.php" method="GET">
+        <form action="registarNuevoUsuario.php" method="POST">
             <input type="text" class="campos" id="usuarioRegistro" placeholder="Usuario" name="usuarioRegistro"/><br/><br/>
             <input type="password" class="campos" id="contraseniaRegistro" placeholder="Contraseña" name="contraseniaRegistro"><br/><br/>
-            <input type="submit" class="botonEnviar" value="REGISTRAR"/>
+            <input type="submit" class="botonEnviar" value="REGISTRARSE"/>
         </form>
         <br/>
         <br/>
