@@ -10,6 +10,13 @@ if (isset($_POST['destinatario'])) {
 <html>
 <head>
     <style>
+
+        .campos {
+            padding:10px;
+            border: 3px solid black;
+            border-radius: 25px;
+        }
+
         body {
             display: flex;
             justify-content: center;
@@ -41,8 +48,8 @@ if (isset($_POST['destinatario'])) {
             background-color: blue;
             border: 2px solid black;
             border-radius: 25px;
-            padding-left:20px;
-            padding-right:20px;
+            padding-left:50px;
+            padding-right:50px;
             padding-top:10px;
             padding-bottom:10px;
             font-size:15px;
@@ -61,8 +68,8 @@ if (isset($_POST['destinatario'])) {
         <h1>NUEVO USUARIO</h1>
         <br/>
         <form action="registarNuevoUsuario.php" method="GET">
-            Usuario <input type="text" id="usuarioRegistro" name="usuarioRegistro"/><br/><br/>
-            Contraseña <input type="password" id="contraseniaRegistro" name="contraseniaRegistro"><br/><br/>
+            <input type="text" class="campos" id="usuarioRegistro" placeholder="Usuario" name="usuarioRegistro"/><br/><br/>
+            <input type="password" class="campos" id="contraseniaRegistro" placeholder="Contraseña" name="contraseniaRegistro"><br/><br/>
             <input type="submit" class="botonEnviar" value="REGISTRAR"/>
         </form>
         <br/>

@@ -102,7 +102,9 @@ if (isset($_SESSION["bd"]))
                 <?php foreach ($_SESSION["bd"] as $usuario): ?>
                     <?php if ($usuario["usuario"] != $usuarioActual) : ?>
                         <tr>
-                            <th><?= $usuario["usuario"] ?></th>
+                            <th>
+                                <?= $usuario["usuario"] ?>
+                            </th>
                             <th>
                                 <form action="leer.php" method="POST">
                                     <input type="hidden" name="escritor" value="<?= $usuario['usuario'] ?>">
