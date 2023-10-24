@@ -42,7 +42,7 @@ else
         }
 
         table {
-            margin: 0 auto; /* Centrar horizontalmente */
+            margin: 0 auto;
         }
 
         table th {

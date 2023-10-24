@@ -27,7 +27,7 @@ if (isset($_POST['destinatario'])) {
         }
 
         form {
-        margin: 0 auto; /* Centrar horizontalmente */
+        margin: 0 auto;
         text-align: center;
         }
 
@@ -36,9 +36,9 @@ if (isset($_POST['destinatario'])) {
         }
 
         .botonEnviar {
-            background-color: green; /* Fondo transparente */
+            background-color: green;
             color: white;
-            border: 2px solid black; /* Sin borde */
+            border: 2px solid black;
             border-radius: 25px;
             padding-left: 15px;
             padding-right: 15px;
@@ -49,7 +49,7 @@ if (isset($_POST['destinatario'])) {
         }
 
         .botonEnviar:hover {
-            background-color: black; /* Fondo transparente */
+            background-color: black;
         }
 
     </style>

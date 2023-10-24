@@ -15,6 +15,7 @@ if (isset($_POST['destinatario'])) {
             padding:10px;
             border: 3px solid black;
             border-radius: 25px;
+            text-align: center;
         }
 
         body {

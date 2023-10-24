@@ -15,6 +15,13 @@ if (isset($_SESSION["bd"]))
     }
 }
 
+$totalMensajes = 0;
+
+if (!isset($_SESSION["mensajes"]))
+{
+    $_SESSION["mensajes"] = array();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -34,31 +41,31 @@ if (isset($_SESSION["bd"]))
         }
 
         .boton-escribir {
-        background-color: blue; /* Fondo transparente */
-        border: 2px solid black; /* Sin borde */
+        background-color: blue;
+        border: 2px solid black;
         border-radius: 25px;
-        color: white; /* Color de texto (ajusta según tu diseño) */
-        cursor: pointer; /* Cambia el cursor al pasar el mouse */
-        padding: 7px; /* Elimina el relleno interno del botón */
-        margin: 0 auto; /* Centrar horizontalmente */
+        color: white;
+        cursor: pointer;
+        padding: 7px;
+        margin: 0 auto;
         margin-top: 0;
-        display: block; /* Hacer el botón un bloque para centrarlo */
+        display: block;
         }
 
         .boton-leer {
-            background-color: green; /* Fondo transparente */
-            border: 2px solid black; /* Sin borde */
+            background-color: green;
+            border: 2px solid black;
             border-radius: 25px;
-            color: white; /* Color de texto (ajusta según tu diseño) */
-            cursor: pointer; /* Cambia el cursor al pasar el mouse */
-            padding: 7px; /* Elimina el relleno interno del botón */
-            margin: 0 auto; /* Centrar horizontalmente */
+            color: white;
+            cursor: pointer;
+            padding: 7px;
+            margin: 0 auto;
             margin-top: 0;
-            display: block; /* Hacer el botón un bloque para centrarlo */
+            display: block;
         }
 
         .boton-escribir:hover, .boton-leer:hover {
-            background-color: white; /* Fondo transparente */
+            background-color: white;
             color: black;
         }
 
@@ -100,16 +107,26 @@ if (isset($_SESSION["bd"]))
                     <th>ACCIONES</th>
                 </tr>
                 <?php foreach ($_SESSION["bd"] as $usuario): ?>
+                    <?php $totalMensajes = 0; ?>
                     <?php if ($usuario["usuario"] != $usuarioActual) : ?>
                         <tr>
                             <th>
                                 <?= $usuario["usuario"] ?>
                             </th>
                             <th>
-                                <form action="leer.php" method="POST">
-                                    <input type="hidden" name="escritor" value="<?= $usuario['usuario'] ?>">
-                                    <input type="submit" class="boton-leer" value="Leer">
-                                </form>
+                                <?php foreach ($_SESSION["mensajes"] as $mensaje) : ?>
+                                    <?php if ($mensaje["emisor"] == $usuario["usuario"] && $mensaje["receptor"] == $usuarioActual) : ?>
+                                        <?php $totalMensajes = $totalMensajes + 1; ?>
+                                    <?php endif; ?>
+                                <?php endforeach; ?>
+                                <?php if ($totalMensajes >= 1) : ?>
+                                    <form action="leer.php" method="POST">
+                                        <input type="hidden" name="escritor" value="<?= $usuario['usuario'] ?>">
+                                        <input type="submit" class="boton-leer" value="Leer (<?= $totalMensajes ?>)">
+                                    </form>
+                                <?php else : ?>
+                                    <h5>SIN<br/>MENSAJES</h5>
+                                <?php endif; ?>
                             </th>
                             <th>
                                 <form action="escribir.php" method="POST">
