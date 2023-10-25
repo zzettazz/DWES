@@ -23,7 +23,7 @@ if (isset($_POST["nombreUsuarioIntroducido"]) && isset($_POST["contraseniaIntrod
     {
         if ($user["usuario"] === $usuario && $user["contrasenia"] === $contrasenia)
         {
-            if ($_POST["recordar"] == "on") $_SESSION["ultimoUsuario"] = $usuario;
+            if (isset($_POST["recordar"])) $_SESSION["ultimoUsuario"] = $usuario;
             $_SESSION["usuarioActual"] = $usuario;
             $_SESSION["estadoLogin"] = "correcto";
             $loginExitoso = true;
