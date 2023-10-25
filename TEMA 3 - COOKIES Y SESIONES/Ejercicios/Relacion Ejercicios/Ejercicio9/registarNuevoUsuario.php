@@ -91,35 +91,42 @@ session_start();
 if (isset($_POST["usuarioRegistro"]) && isset($_POST["contraseniaRegistro"]) && $_POST["usuarioRegistro"] != "" && $_POST["contraseniaRegistro"] != "" )
 {
 
-    $usuarioYaExistente = false;
-
-    if (!isset($_SESSION["bd"]) )
+    if ($_POST["usuarioRegistro"] == $_POST["contraseniaRegistro"])
     {
-        $_SESSION["bd"] = array();
-        array_push($_SESSION["bd"],["usuario"=>$_POST["usuarioRegistro"],"contrasenia"=>$_POST["contraseniaRegistro"]]);
-
-        registroExistoso();
+        mostrarError("LA CONTRASEÑA INTRODUCIDA NO ES VÁLIDA");
     }
     else
     {
-        foreach ($_SESSION["bd"] as $array)
-        {
-            if ($array["usuario"] == $_POST["usuarioRegistro"])
-            {
-                $usuarioYaExistente = true;
-                break;
-            }
-        }
+        $usuarioYaExistente = false;
 
-        if (!$usuarioYaExistente)
+        if (!isset($_SESSION["bd"]) )
         {
+            $_SESSION["bd"] = array();
             array_push($_SESSION["bd"],["usuario"=>$_POST["usuarioRegistro"],"contrasenia"=>$_POST["contraseniaRegistro"]]);
 
             registroExistoso();
         }
         else
         {
-            mostrarError("USUARIO YA EXISTENTE");
+            foreach ($_SESSION["bd"] as $array)
+            {
+                if ($array["usuario"] == $_POST["usuarioRegistro"])
+                {
+                    $usuarioYaExistente = true;
+                    break;
+                }
+            }
+
+            if (!$usuarioYaExistente)
+            {
+                array_push($_SESSION["bd"],["usuario"=>$_POST["usuarioRegistro"],"contrasenia"=>$_POST["contraseniaRegistro"]]);
+
+                registroExistoso();
+            }
+            else
+            {
+                mostrarError("USUARIO YA EXISTENTE");
+            }
         }
     }
 }
