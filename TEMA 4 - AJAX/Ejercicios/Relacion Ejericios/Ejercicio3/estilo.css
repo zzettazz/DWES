@@ -1,0 +1,11 @@
+img {
+    border: 2px solid black;
+}
+
+.banderas {
+    border-bottom: 2px solid gray;
+}
+
+body {
+    text-align: center;
+}
