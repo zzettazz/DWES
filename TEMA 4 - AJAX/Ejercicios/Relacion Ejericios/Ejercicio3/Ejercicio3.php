@@ -11,25 +11,22 @@
                 <label for="ES">
                     <img src="img/banderaEspaña.png" height="30vh"></img>
                 </label>
-                <input type="radio" name="idioma" onchange="traducir()" id="ES" value="español"/>
+                <input type="radio" name="idioma" onchange="traducir()" id="ES" value="ES"/>
                 <label for="UK">
                     <img src="img/banderaUk.png" height="30vh"></img>
                 </label>
-                <input type="radio" name="idioma" onchange="traducir()" id="UK" value="ingles"/>
+                <input type="radio" name="idioma" onchange="traducir()" id="UK" value="EN"/>
                 <label for="FR">
                     <img src="img/banderaFrancia.png" height="30vh"></img>
                 </label>
-                <input type="radio" name="idioma" onchange="traducir()" id="FR" value="frances"/>
+                <input type="radio" name="idioma" onchange="traducir()" id="FR" value="FR"/>
             </div>
+
             <br/><br/>
-            <div id="palabra">
-                Palabra <input type="text"/>
-            </div>
+
             <div id="traduccion">
-                Traducción <input type="text"/>
-            </div>
-            <br/>
-            <div id="boton">
+                Palabra <input type="text"/><br/>
+                Traducción <input type="text"/><br/>
                 <input type="submit" value="Enviar"/>
             </div>
         </form>
