@@ -7,9 +7,6 @@
   </head>
 
   <body>
-    <form action="#" method="GET">
-    </form>
-
     Usuario <input type="text" id="usuario"/><br/>
     Contraseña <input type="text" id="contrasenya"/><br/>
     <input type="button" onclick="saludarUsuario()" value="COMPROBAR"/><br/>
