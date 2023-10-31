@@ -75,4 +75,33 @@
 		],
 		"description": "Genera una nueva plantilla de AJAX para JS"
 	},
+
+	"Generar conexion a BBDD": {
+		"prefix": "!newbbdd",
+		"body": [
+		  "<?php",
+		  "",
+		  "function conectarBBD()",
+		  "{",
+		  "    $$base = \"$1\";",
+		  "    $$usuario = \"$2\";",
+		  "    $$pwd = \"$3\";",
+		  "    $$host = \"$4\";",
+		  "    try",
+		  "    {",
+		  "        $$stringConexion = \"mysql:host=$$host;dbname=$$base\";",
+		  "        $$conexion = new PDO($$stringConexion, $$usuario, $$pwd);",
+		  "    }",
+		  "    catch (Exception $$e)",
+		  "    {",
+		  "        print(\"ERROR DE CONEXION\");",
+		  "        die();",
+		  "    }",
+		  "    return $$conexion;",
+		  "}",
+		  "",
+		  "?>"
+		],
+		"description": "Generar conexion a BBDD"
+	},
 }
