@@ -1,5 +1,5 @@
 <?php
-include("utilSQL.php");
+include("../utilSQL.php");
 
 if (isset($_POST["usuario"]) && isset($_POST["contrasenia"]) && $_POST["usuario"] != "" && $_POST["contrasenia"] != "")
 {
@@ -25,7 +25,7 @@ if (isset($_POST["usuario"]) && isset($_POST["contrasenia"]) && $_POST["usuario"
         else
         {
             echo "<h1>No se ha encontrado el usuario</h1>";
-            header("refresh:3;url=registro.html");
+            header("refresh:3;url=login.html");
         }
     }
     catch (Exception $e)
@@ -37,7 +37,7 @@ else
 {
     echo "<h1>Has introducido datos erróneos</h1>";
     echo "<br/>Serás reedirigido en 3 segundos";
-    header("refresh:3;url=registro.html");
+    header("refresh:3;url=login.html");
 }
 
 ?>

@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Esto centrará verticalmente el contenido */
+    text-align: center;
+    box-sizing: border-box;
+    min-height: 100vh; /* Para asegurarte de que el contenido se centre en la página completa */
+    margin: 0; /* Asegúrate de que no haya márgenes externos */
+}
+
+
+body form h3 {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 7vh;
+}
+
+body form {
+    border: 2px solid black;
+    padding: 50px;
+    border-radius: 25px;
+}
+
+
+body form input{
+    margin-bottom: 10px;
+}
+
+.typetext
+{
+    
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    text-align: center;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    width: 30vw;
+}
+
+.typetext:focus {
+    color: white;
+    background-color: black;
+    border-color: gray;
+}
+
+.boton{
+    margin-top: 6vh;
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.boton:hover {
+    color:white;
+    background-color: black;
+    cursor: pointer;
+}
