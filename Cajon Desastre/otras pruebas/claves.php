@@ -1,3 +1,3 @@
 <?php
-define("CONTRASENA","Gomezfernando6")
+define("CONTRASENA","")
 ?>
