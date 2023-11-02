@@ -16,27 +16,29 @@
 	// 	"description": "Log output to console"
 	// }
 
-	"Genera una nueva plantilla para HTML": {
+	"Generar plantilla de HTML": {
 		"prefix": "!newhtml",
 		"body": [
+		  "",
 		  "<!DOCTYPE html>",
-		  "<html lang=\"es\">",
+		  "<html lang=\"${1|es,en|}\">",
 		  "",
-		  "  <head>",
-		  "    <title>Titulo</title>",
-		  "    <meta charset=\"utf-8\">",
-		  "    <link rel=\"stylesheet\" href=\"${1|estilo.css,styles.css|}\">", // Placeholder para estilo.css
-		  "  </head>",
+		  "    <head>",
+		  "        <title>$2</title>",
+		  "        <meta charset=\"utf-8\">",
+		  "        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+		  "        <link rel=\"stylesheet\" href=\"${3|estilo.css,otro.css|}\">",
+		  "    </head>",
 		  "",
-		  "  <body>",
-		  "    $2",
-		  "  </body>",
+		  "    <body>",
+		  "    ",
+		  "    </body>",
 		  "",
-		  "  <script src=\"${3|script.js,otro.js|}\"></script>", // Placeholder para script.js
+		  "    <script src=\"${4|script.js,otro.js|}\"></script>",
 		  "",
 		  "</html>"
 		],
-		"description": "Genera una nueva plantilla para HTML"
+		"description": "Generar plantilla de HTML"
 	},
 
 	"Genera una nueva plantilla de FORMULARIO para HTML": {
