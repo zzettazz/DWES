@@ -12,6 +12,8 @@ if (isset($_POST["nombreCookie"]) && isset($_POST["contenidoCookie"]) && $_POST[
         $path .= 'nivel' . $i . '/';
     }
 
+    // RUTA pathinfo($_SERVER['REQUEST_URI'])['dirname']
+
     setcookie($nombreCookie, $contenidoCookie, 0, $path);
     header("Location:index.php");
 } else {
