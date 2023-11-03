@@ -7,7 +7,8 @@ if (isset($_POST["nombreCookie"]) && isset($_POST["contenidoCookie"]) && $_POST[
     $path = '/';
     
     // Agregar directorios a la ruta para que sea visible en niveles superiores
-    for ($i = 0; $i <= $nivelCookie; $i++) {
+    for ($i = 0; $i <= $nivelCookie; $i++)
+    {
         $path .= 'nivel' . $i . '/';
     }
 
