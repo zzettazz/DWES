@@ -5,6 +5,7 @@ class Persona extends CI_Controller
     {
         frame($this, 'persona/c');
     }
+    
     public function cPost()
     {
         $nombre = isset($_POST['nombre']) ? $_POST['nombre'] : null;
