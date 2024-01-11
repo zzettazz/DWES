@@ -22,12 +22,11 @@ class Welcome extends CI_Controller {
 	{
 		/*
 		$this->load->view('welcome_message');
-		*/
 		$datos = [
 			"usuario" => "pepito"
 		];
-
-		$this->load->view('home/home', $datos);
+		*/
+		$this->load->view('home/home');
 	}
 
 	

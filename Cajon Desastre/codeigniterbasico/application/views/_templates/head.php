@@ -8,7 +8,6 @@
         <title>Ejemplo APP</title>
     </head>
     <body>
-        <?= $usuario ?>
         <div class="container bg-dark">
             <div class="row text-center">
                 <div class="col">
