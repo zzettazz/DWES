@@ -10,6 +10,16 @@ class Login extends CI_Controller {
 
         frame($this, $vistasNecesarias, null);
     }
+
+    public function login()
+    {
+        $usuario = $_POST["usuario"];
+        $contrasenia = $_POST["contrasenia"];
+
+        $_SESSION["usuarioActual"] = $usuario;
+
+        $this->load->view("_templates/head");
+    }
 }
 
 ?>

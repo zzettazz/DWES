@@ -20,8 +20,8 @@
                     <button type="button" class="btn btn-dark fw-bolder" onclick="window.location.href='<?=base_url()?>signup'">REGISTRO</button>
                 </div>
             </div>
-            <?php if (isset($usuario) && $usuario != "") : ?>
-                <h4 style="padding-bottom: 2vh;" class="text-white">Bienvenido, <?= $usuario ?></h4> 
+            <?php if (isset($_SESSION["usuario"]) && $_SESSION["usuario"] != "") : ?>
+                <h4 style="padding-bottom: 2vh;" class="text-white">Bienvenido, <?= $_SESSION["usuario"] ?></h4> 
             <?php else : ?>
             <h4 style="padding-bottom: 2vh;" class="text-white">Por favor, <a href="<?=base_url()?>login">identifícate</a> o <a href="<?=base_url()?>signup">regístrate</a></h4>
             <?php endif; ?>
