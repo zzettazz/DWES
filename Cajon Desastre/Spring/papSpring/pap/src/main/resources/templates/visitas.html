@@ -1,0 +1,20 @@
+<title id="titulo">Vivan las visitas</title>
+<h1>Número de visitas: <span th:text="${numVisita}"></span>
+<script>
+    var miIntervalo = setInterval(cambiarTitulo,1000);
+
+    var num = 0;
+    function cambiarTitulo()
+    {
+        if (num == 0)
+        {
+            document.getElementById("titulo").innerHTML = "Hola 👋";
+            num = 1;
+        }
+        else
+        {
+            document.getElementById("titulo").innerHTML = "Adios 🤞";
+            num = 0;
+        }
+    }
+</script>

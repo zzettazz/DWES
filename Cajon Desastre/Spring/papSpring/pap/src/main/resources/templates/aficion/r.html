@@ -1,0 +1,13 @@
+<div class="container">
+    <button onclick="window.location.href='/aficion/c'">Crear Aficion</button>
+    <h1>Lista de Aficiones</h1>
+    <thead>
+        <th>Nombre</th>
+    </thead>
+
+    <ul>
+        <li th:each="aficion : ${aficiones}">
+            <span th:text="${aficion.id}"></span> : <span th:text="${aficion.nombre}"></span>
+        </li>
+    </ul>
+</div>

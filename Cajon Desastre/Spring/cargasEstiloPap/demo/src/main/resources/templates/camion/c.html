@@ -1,0 +1,22 @@
+<div class="container">
+  
+    <h1>Nuevo Camión</h1>
+
+    <form action="/camion/c" method="post">
+        <label for="matricula">Matrícula: </label> <input type="text" id="matricula" name="matricula" autofocus />
+        <br/>
+
+        <label for="cargaAsignada">Carga Asignada: </label>
+        <select id="cargaAsignada" name="cargaAsignadaId">
+        </select>
+        <br/>
+
+        <label for="camioneroAsignado">Camionero Asignado: </label>
+        <select id="camioneroAsignado" name="camioneroAsignadoId">
+        </select>
+        <br/>
+
+        <input type="submit"/>
+    </form>
+    <button onclick="window.location.href='/camion/r'">Cancelar</button>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+    <button onclick="window.location.href='/pais/c'">Crear País</button>
+    <h1>Lista de Países</h1>
+    <thead>
+        <th>Nombre</th>
+    </thead>
+
+    <ul>
+        <li th:each="pais : ${paises}">
+            <span th:text="${pais.id}"></span> : <span th:text="${pais.nombre}"></span>
+        </li>
+    </ul>
+</div>

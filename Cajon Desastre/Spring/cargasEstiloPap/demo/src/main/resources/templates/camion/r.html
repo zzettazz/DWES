@@ -1,0 +1,16 @@
+<div class="container">
+    <button onclick="window.location.href='/camion/c'">Nuevo Camión</button>
+    <h1>Lista de Camiones</h1>
+    <table class="table table-striped">
+        <thead>
+            <th>id</th>
+            <th>Matricula</th>
+            <th>Carga Asignada</th>
+            <th>Camionero Asignado</th>
+        </thead>
+
+        <tr th:each="aficion : ${aficiones}">
+            <td th:text="${aficion.nombre}" />
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,13 @@
+<div class="container">
+    <button onclick="window.location.href='/pais/c'">Nuevo país</button>
+    <h1>Lista de países</h1>
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+        </thead>
+
+        <tr th:each="pais : ${paises}">
+            <td th:text="${pais.nombre}" />
+        </tr>
+    </table>
+</div>

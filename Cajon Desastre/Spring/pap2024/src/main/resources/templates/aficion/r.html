@@ -1,0 +1,13 @@
+<div class="container">
+    <button onclick="window.location.href='/aficion/c'">Nueva afición</button>
+    <h1>Lista de aficiones</h1>
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+        </thead>
+
+        <tr th:each="aficion : ${aficiones}">
+            <td th:text="${aficion.nombre}" />
+        </tr>
+    </table>
+</div>
