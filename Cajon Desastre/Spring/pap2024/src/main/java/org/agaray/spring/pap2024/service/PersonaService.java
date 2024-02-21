@@ -26,6 +26,11 @@ public class PersonaService {
         return personaRepository.findAll();
     }
 
+    public Persona findById(Long id)
+    {
+        return personaRepository.findById(id).get();
+    }
+
     public void save(
             String dni,
             String nombre,
