@@ -20,7 +20,9 @@ public class PaisController {
 
     @GetMapping("r")
     public String r(
-            ModelMap m) {
+        ModelMap m
+    )
+    {
         m.put("paises", paisService.findAll());
         m.put("view", "pais/r");
         return "_t/frame";
