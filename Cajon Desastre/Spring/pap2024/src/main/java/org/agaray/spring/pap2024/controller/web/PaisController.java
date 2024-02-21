@@ -1,7 +1,6 @@
 package org.agaray.spring.pap2024.controller.web;
 
 import org.agaray.spring.pap2024.exception.DangerException;
-import org.agaray.spring.pap2024.exception.InfoException;
 import org.agaray.spring.pap2024.helper.PRG;
 import org.agaray.spring.pap2024.service.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
