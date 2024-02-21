@@ -14,7 +14,8 @@ public class PaisService {
     private PaisRepository paisRepository;
 
     public Pais findById(Long idPais) {
-        return paisRepository.findById(idPais).get();
+        if (idPais != null) return paisRepository.findById(idPais).get();
+        else return new Pais();
     }
 
     public List<Pais> findAll() {
@@ -26,8 +27,11 @@ public class PaisService {
     }
 
     public void update(Long idPais, String nombre) {
-        Pais pais = paisRepository.findById(idPais).get();
-        pais.setNombre(nombre);
-        paisRepository.save(pais);
+        if (idPais != null)
+        {
+            Pais pais = paisRepository.findById(idPais).get();
+            pais.setNombre(nombre);
+            paisRepository.save(pais);   
+        }
     }
 }

@@ -28,7 +28,8 @@ public class PersonaService {
 
     public Persona findById(Long id)
     {
-        return personaRepository.findById(id).get();
+        if (id != null) return personaRepository.findById(id).get();
+        else return new Persona();
     }
 
     public void save(
@@ -37,21 +38,29 @@ public class PersonaService {
             Long idNace,
             Long idVive,
             List<Long> idsGusto,
-            List<Long> idsOdio) {
-        Persona persona = new Persona(dni, nombre);
-        persona.setNace(paisRepository.findById(idNace).get());
-        persona.setVive(paisRepository.findById(idVive).get());
-        idsGusto = (idsGusto == null ? new ArrayList<Long>() : idsGusto);
-        for (Long idGusto : idsGusto) {
-            Aficion gusto = aficionRepository.findById(idGusto).get();
-            persona.getGustos().add(gusto);
+            List<Long> idsOdio)
+    {
+        if (idNace != null && idVive!= null)
+        {
+            Persona persona = new Persona(dni, nombre);
+            persona.setNace(paisRepository.findById(idNace).get());
+            persona.setVive(paisRepository.findById(idVive).get());
+            idsGusto = (idsGusto == null ? new ArrayList<Long>() : idsGusto);
+            for (Long idGusto : idsGusto) {
+                if (idGusto!= null){
+                    Aficion gusto = aficionRepository.findById(idGusto).get();
+                    persona.getGustos().add(gusto);
+                }
+            }
+            idsOdio = (idsOdio == null ? new ArrayList<Long>() : idsOdio);
+            for (Long idOdio : idsOdio) {
+                if (idOdio != null)
+                {
+                    Aficion odio = aficionRepository.findById(idOdio).get();
+                    persona.getOdios().add(odio);
+                }
+            }
+            personaRepository.save(persona);
         }
-        idsOdio = (idsOdio == null ? new ArrayList<Long>() : idsOdio);
-        for (Long idOdio : idsOdio) {
-            Aficion odio = aficionRepository.findById(idOdio).get();
-            persona.getOdios().add(odio);
-        }
-        personaRepository.save(persona);
-
     }
 }

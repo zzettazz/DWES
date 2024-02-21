@@ -15,7 +15,8 @@ public class AficionService {
 
 
     public Aficion findById(Long idAficion) {
-        return aficionRepository.findById(idAficion).get();
+        if (idAficion != null) return aficionRepository.findById(idAficion).get();
+        else return new Aficion();
     }
 
     public List<Aficion> findAll() {
@@ -27,9 +28,12 @@ public class AficionService {
     }
 
     public void update(Long idAficion, String nombre) {
-        Aficion aficion = aficionRepository.findById(idAficion).get();
-        aficion.setNombre(nombre);
-        aficionRepository.save(aficion);
+        if (idAficion != null)
+        {
+            Aficion aficion = aficionRepository.findById(idAficion).get();
+            aficion.setNombre(nombre);
+            aficionRepository.save(aficion);
+        }
     }
 
 }
