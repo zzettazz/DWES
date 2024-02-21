@@ -3,6 +3,8 @@ package org.agaray.spring.pap2024.domain;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,9 +24,11 @@ public class Pais {
     @Column(unique = true)
     private String nombre;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "nace")
     private Collection<Persona> nacidos;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "vive")
     private Collection<Persona> residentes;
 

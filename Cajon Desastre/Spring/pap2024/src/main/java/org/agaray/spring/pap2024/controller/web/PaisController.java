@@ -1,12 +1,9 @@
-package org.agaray.spring.pap2024.controller;
+package org.agaray.spring.pap2024.controller.web;
 
-import java.util.List;
-
-import org.agaray.spring.pap2024.domain.Pais;
 import org.agaray.spring.pap2024.exception.DangerException;
 import org.agaray.spring.pap2024.exception.InfoException;
 import org.agaray.spring.pap2024.helper.PRG;
-import org.agaray.spring.pap2024.repository.PaisRepository;
+import org.agaray.spring.pap2024.service.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -20,12 +17,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class PaisController {
 
     @Autowired
-    private PaisRepository paisRepository;
+    private PaisService paisService;
 
     @GetMapping("r")
     public String r(
             ModelMap m) {
-        m.put("paises", paisRepository.findAll());
+        m.put("paises", paisService.findAll());
         m.put("view", "pais/r");
         return "_t/frame";
     }
@@ -39,12 +36,35 @@ public class PaisController {
 
     @PostMapping("c")
     public String cPost(
-            @RequestParam("nombre") String nombre) throws DangerException, InfoException {
+            @RequestParam("nombre") String nombre) throws DangerException {
         try {
-            paisRepository.save(new Pais(nombre));
-
+            paisService.save(nombre);
         } catch (Exception e) {
             PRG.error("El país "+nombre+" ya existe","/pais/c");
+        }
+        return "redirect:/pais/r";
+    }
+
+    @GetMapping("u")
+    public String update(
+        @RequestParam("id") Long idPais,
+        ModelMap m
+    ) {
+        m.put("pais", paisService.findById(idPais));
+        m.put("view", "pais/u");
+        return "_t/frame";
+    }
+
+    @PostMapping("u")
+    public String updatePost(
+        @RequestParam("idPais") Long idPais,
+        @RequestParam("nombre") String nombre
+    ) throws DangerException {
+        try {
+            paisService.update(idPais, nombre);
+        }
+        catch (Exception e) {
+            PRG.error("El país no pudo ser actualizado","/pais/r");
         }
         return "redirect:/pais/r";
     }

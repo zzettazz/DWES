@@ -9,6 +9,7 @@
             <th>País de residencia</th>
             <th>Gustos</th>
             <th>Odios</th>
+            <th>Editar</th>
         </thead>
 
         <tr th:each="persona : ${personas}">
@@ -22,7 +23,11 @@
             <td>
                 <th:block th:each=" odio : ${persona.odios}" th:text="|${odio.nombre} |">
             </td>
-
+            <td>
+                <button th:onclick="|window.location.href='/persona/u?id=${persona.id}'|">
+                    <img src="/img/lapiz.png" height="20" width="20">
+                </button>
+            </td>
         </tr>
     </table>
 </div>

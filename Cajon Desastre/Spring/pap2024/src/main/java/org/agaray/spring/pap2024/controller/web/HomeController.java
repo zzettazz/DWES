@@ -1,4 +1,4 @@
-package org.agaray.spring.pap2024.controller;
+package org.agaray.spring.pap2024.controller.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
