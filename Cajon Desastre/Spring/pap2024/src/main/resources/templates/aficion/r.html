@@ -4,16 +4,33 @@
     <table class="table table-striped">
         <thead>
             <th>Nombre</th>
+            <th>#aficionados</th>
+            <th>#haters</th>
             <th>Editar</th>
+            <th>Borrar</th>
         </thead>
 
         <tr th:each="aficion : ${aficiones}">
+
             <td th:text="${aficion.nombre}" />
+            
+            <td th:text="${aficion.aficionados.size()}"/>
+
+            <td th:text="${aficion.haters.size()}"/>
+
             <td>
                 <button th:onclick="|window.location.href='/aficion/u?id=${aficion.id}'|">
                     <img src="/img/lapiz.png" height="20" width="20">
                 </button>
             </td>
+
+            <td>
+                <form action="/aficion/d" method="post">
+                    <input type="hidden" name="id" th:value="${aficion.id}">
+                    <input alt="basura" type="image" src="/img/basura.png" height="20" width="20"/>
+                </form>
+            </td>
+
         </tr>
     </table>
 </div>

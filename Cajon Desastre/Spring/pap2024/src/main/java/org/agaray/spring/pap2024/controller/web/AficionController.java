@@ -69,5 +69,17 @@ public class AficionController {
         return "redirect:/aficion/r";
     }
 
+    @PostMapping("d")
+    public String delete(
+        @RequestParam("id") Long idAficion
+    ) throws DangerException {
+        try {
+            aficionService.delete(idAficion);
+        }
+        catch (Exception e) {
+            PRG.error("No se puede borrar una afición que tenga algún aficionado/hater","/aficion/r");
+        }
+        return "redirect:/aficion/r";
+    }
 
 }

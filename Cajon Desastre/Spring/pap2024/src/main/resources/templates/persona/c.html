@@ -12,6 +12,10 @@
         <input id="id-nombre" type="text" name="nombre" />
         <br />
 
+        <label for="id-password">Contraseña</label>
+        <input id="id-password" type="password" name="password" />
+        <br />
+
         <label for="idNace">País de nacimiento</label>
         <select id="idNace" name="id-nace">
             <option th:each=" pais: ${paises}" th:text="${pais.nombre}" th:value="${pais.id}" />

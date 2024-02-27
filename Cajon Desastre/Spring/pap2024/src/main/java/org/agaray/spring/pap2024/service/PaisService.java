@@ -13,25 +13,28 @@ public class PaisService {
     @Autowired
     private PaisRepository paisRepository;
 
-    public Pais findById(Long idPais) {
-        if (idPais != null) return paisRepository.findById(idPais).get();
-        else return new Pais();
-    }
-
     public List<Pais> findAll() {
         return paisRepository.findAll();
     }
 
-    public void save(String nombre) {
-        paisRepository.save(new Pais(nombre));
+    public List<Pais> findByNombre(String nombre) {
+        return paisRepository.findByNombre(nombre);
     }
 
+    public Pais save(String nombre) {
+        return paisRepository.save(new Pais(nombre));
+    }
+
+    public Pais findById(Long idPais) {
+        return paisRepository.findById(idPais).get();
+    }
     public void update(Long idPais, String nombre) {
-        if (idPais != null)
-        {
-            Pais pais = paisRepository.findById(idPais).get();
-            pais.setNombre(nombre);
-            paisRepository.save(pais);   
-        }
+        Pais pais = paisRepository.findById(idPais).get();
+        pais.setNombre(nombre);
+        paisRepository.save(pais);
+    }
+
+    public void delete(Long idPais) {
+        paisRepository.delete(paisRepository.getReferenceById(idPais));
     }
 }

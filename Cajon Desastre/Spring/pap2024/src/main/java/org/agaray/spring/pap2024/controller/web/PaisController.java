@@ -1,6 +1,7 @@
 package org.agaray.spring.pap2024.controller.web;
 
 import org.agaray.spring.pap2024.exception.DangerException;
+import org.agaray.spring.pap2024.exception.InfoException;
 import org.agaray.spring.pap2024.helper.PRG;
 import org.agaray.spring.pap2024.service.PaisService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,9 +21,7 @@ public class PaisController {
 
     @GetMapping("r")
     public String r(
-        ModelMap m
-    )
-    {
+            ModelMap m) {
         m.put("paises", paisService.findAll());
         m.put("view", "pais/r");
         return "_t/frame";
@@ -70,4 +69,16 @@ public class PaisController {
         return "redirect:/pais/r";
     }
 
+    @PostMapping("d")
+    public String delete(
+        @RequestParam("id") Long idPais
+    ) throws DangerException {
+        try {
+            paisService.delete(idPais);
+        }
+        catch (Exception e) {
+            PRG.error("No se puede borrar un país que tenga algún nacido/residente","/pais/r");
+        }
+        return "redirect:/pais/r";
+    }
 }

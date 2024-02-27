@@ -10,23 +10,38 @@
             <th>Gustos</th>
             <th>Odios</th>
             <th>Editar</th>
+            <th>Borrar</th>
         </thead>
 
         <tr th:each="persona : ${personas}">
+            
             <td th:text="${persona.dni}" />
+            
             <td th:text="${persona.nombre}" />
+            
             <td th:text="${persona.nace?.nombre}" />
+            
             <td th:text="${persona.vive?.nombre}" />
+            
             <td>
                 <th:block th:each=" gusto : ${persona.gustos}" th:text="|${gusto.nombre} |">
             </td>
+            
             <td>
                 <th:block th:each=" odio : ${persona.odios}" th:text="|${odio.nombre} |">
             </td>
+            
             <td>
                 <button th:onclick="|window.location.href='/persona/u?id=${persona.id}'|">
                     <img src="/img/lapiz.png" height="20" width="20">
                 </button>
+            </td>
+
+            <td>
+                <form action="/persona/d" method="post">
+                    <input type="hidden" name="id" th:value="${persona.id}">
+                    <input alt="basura" type="image" src="/img/basura.png" height="20" width="20"/>
+                </form>
             </td>
         </tr>
     </table>

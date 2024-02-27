@@ -26,6 +26,8 @@ public class Persona {
 
     private String nombre;
 
+    private String password;
+
     @ManyToOne
     private Pais nace;
 
@@ -45,9 +47,10 @@ public class Persona {
         this.odios = new ArrayList<>();
     }
 
-    public Persona(String dni,String nombre) {
+    public Persona(String dni,String nombre, String password) {
         this.dni = dni;
         this.nombre = nombre;
+        this.password = password;
         this.gustos = new ArrayList<>();
         this.odios = new ArrayList<>();
     }

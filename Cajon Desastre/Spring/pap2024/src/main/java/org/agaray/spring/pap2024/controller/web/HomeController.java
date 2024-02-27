@@ -37,5 +37,11 @@ public class HomeController {
 		return "/_t/frame";
 	}
 
-    
+    @GetMapping("/login")
+	public String login(
+		ModelMap m
+	) {
+		m.put("view","home/login");
+		return "_t/frame";
+	}
 }
