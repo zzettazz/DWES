@@ -1,0 +1,23 @@
+<div class="container">
+    <button onclick="window.location.href='/departamento/c'">Nuevo departamento</button>
+    <h1>Lista de departamentos</h1>
+    <table class="table table-striped">
+        <thead>
+            <th>Nombre</th>
+            <th>Borrar</th>
+        </thead>
+
+        <tr th:each="departamento : ${departamentoes}">
+            
+            <td th:text="${departamento.nombre}" />
+
+            
+            <td>
+                <form action="/departamento/d" method="post">
+                    <input type="hidden" name="id" th:value="${departamento.id}">
+                    <input alt="basura" type="image" src="/img/basura.png" height="20" width="20"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>50</x>
+      <y>50</y>
+      <w>130</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Empleado
+--
+**dni
+nombre
+apellido</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>50</y>
+      <w>110</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>Departamento
+--
+**nombre</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>170</x>
+      <y>80</y>
+      <w>220</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes>
+    <additional_attributes>200.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>70</x>
+      <y>100</y>
+      <w>230</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m1=0..1
+r1=jefe
+r2=subordinados</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;150.0;170.0;150.0;170.0;20.0;110.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLNote</id>
+    <coordinates>
+      <x>50</x>
+      <y>290</y>
+      <w>550</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>CASOS de USO
+=====
+_Departamento_
+CRD
+
+_Empleado_
+CRD
+asignarDepartamento
+asignarJefe (Un empleado no puede tener un jefe que no sea de su departamento)
+
+
+* Caso R con filtro por dpto.
+* Columna que diga quién es el jefe de alguien
+* Columna que diga # de subordinados y tenga 
+  un link para una lista detallada de los mismos
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

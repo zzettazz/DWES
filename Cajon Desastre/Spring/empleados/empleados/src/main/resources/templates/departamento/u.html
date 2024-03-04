@@ -1,0 +1,16 @@
+<div class="container">
+  
+    <h1>Editar departamento</h1>
+
+    <form action="/departamento/u" method="post">
+
+        <label for="id-nombre">Nombre</label>
+        <input id="id-nombre" type="text" name="nombre" autofocus="autofocus" th:value="${departamento.nombre}" />
+        <br/>
+
+        <input type="hidden" name="id" th:value="${departamento.id}"/>
+
+        <input type="submit"/>
+    </form>
+    <button onclick="window.location.href='/'">Cancelar</button>
+</div>

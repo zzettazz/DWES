@@ -1,0 +1,40 @@
+<div class="container">
+    <button onclick="window.location.href='/empleado/c'">Nuevo empleado</button>
+    <h1>Lista de empleados</h1>
+    <table class="table table-striped">
+        <thead>
+            <th>DNI</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Departamento</th>
+            <th>Asignar dpto.</th>
+            <th>Jefe</th>
+            <th># subordinados</th>
+            <th>Borrar</th>
+        </thead>
+
+        <tr th:each="empleado : ${empleadoes}">
+            
+            <td th:text="${empleado.dni}" />
+
+            <td th:text="${empleado.nombre}" />
+
+            <td th:text="${empleado.apellido}" />
+
+            <td th:text="${empleado.departamento?.nombre}" />
+            
+            <td><a th:href="|/empleado/asignarDpto?id=${empleado.id}|" th:text="|Asignar|"/></td>
+
+            <td th:text="${empleado.jefe?.nombre}" />
+
+            <td th:text="${empleado.subordinados.size()}" />
+
+            <td>
+                <form action="/empleado/d" method="post">
+                    <input type="hidden" name="id" th:value="${empleado.id}">
+                    <input alt="basura" type="image" src="/img/basura.png" height="20" width="20"/>
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>

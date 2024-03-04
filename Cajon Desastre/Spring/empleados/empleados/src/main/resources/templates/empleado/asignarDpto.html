@@ -1,0 +1,19 @@
+<div class="container">
+    <h1 th:text="|Asignar departamento a [${empleado.dni}] ${empleado.nombre} ${empleado.apellido}|" />
+
+
+    <form action="/empleado/asignarDpto" method="post">
+        <input type="hidden" name="idEmpleado" th:value="${empleado.id}" />
+
+        <fieldset>
+            <legend>Escoge el nuevo departamento</legend>
+            <select name="idDepartamento">
+                <option th:each="departamento:${departamentos}" th:value="${departamento.id}"
+                    th:text="${departamento.nombre}" />
+            </select>
+        </fieldset>
+
+        <input type="submit" />
+    </form>
+
+</div>
